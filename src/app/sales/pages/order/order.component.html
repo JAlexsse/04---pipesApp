@@ -1,0 +1,114 @@
+<div class="text-layout">
+    <h1>Custom Pipes</h1>
+    <p>You can do your own pipes too.</p>
+</div>
+<div class="p-grid">
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="My Uppercase Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    My uppercase pipe.
+                    You can send a boolean value to determine if you want it to be upper or lower case.
+                </strong>
+            </p>
+            <p>
+                Format: {{ format }}
+                <br>
+                Text: {{ testString | myuppercase:toUpper }}
+            </p>
+            <button 
+                pButton 
+                (click)="changeUsageOfPipe()"
+                [label]="textButton"
+                icon="pi pi-pencil" 
+                iconPos="right">
+            </button>
+        </p-fieldset>
+    </div>
+</div>
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <p class="text-layout">
+            <strong>
+                Order by
+            </strong>
+        </p>
+    </div>
+    
+    <div class="p-toolbar-group-right">
+        <button 
+            pButton
+            (click)="changeValueButton( 'name' )"
+            label="Name"
+            icon="pi pi-sort"
+            iconPos="right"
+            class="p-mr-1">
+        </button>
+        <button 
+            pButton
+            (click)="changeValueButton( 'value' )"
+            label="Value"
+            icon="pi pi-sort"
+            iconPos="right"
+            class="p-mr-1 p-button-success">
+        </button>
+        <button 
+            pButton
+            (click)="changeValueButton( 'color' )"
+            label="Color"
+            icon="pi pi-sort"
+            iconPos="right"
+            class="p-mr-1 p-button-help">
+        </button>
+    </div>
+</p-toolbar>
+<div class="p-grid">
+    <div class="p-col p-mt-2">
+        <p-table [value]="products | order:orderButton" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Value</th>
+                    <th>Stock</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.color }}</td>
+                    <td>{{ product.value | currency }}</td>
+                    <td>{{ product.stock | stock | myuppercase}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<!--
+Como el pSortableColumn muta el arreglo original
+para evitar conflictos con la otra tabla mandamos una copia
+utilizando el slice:0
+-->
+<div class="p-grid">
+    <div class="p-col p-mt-2">
+        <p-table [value]="products | slice:0" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="color">Color<p-sortIcon field="color"></p-sortIcon></th>
+                    <th pSortableColumn="value">Value<p-sortIcon field="value"></p-sortIcon></th>
+                    <th pSortableColumn="stock">Stock<p-sortIcon field="stock"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.color }}</td>
+                    <td>{{ product.value | currency }}</td>
+                    <td>{{ product.stock | stock | myuppercase}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

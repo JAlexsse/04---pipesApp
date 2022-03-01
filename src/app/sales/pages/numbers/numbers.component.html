@@ -1,0 +1,127 @@
+<div class="text-layout">
+    <h1>Decimal Pipes</h1>
+    <p>Basic Angular pipes normally included in the Common Module.</p>
+</div>
+<div class="p-grid">
+    <div class="p-lg-6 p-md-6 p-sm-12">
+        <p-card
+            header="Number"
+            subheader="Formats a value according to digit options and locale rules.">
+            <p>
+                Locale determines group sizing and separator, 
+                decimal point character, and other 
+                locale-specific configurations.
+            </p>
+            <p>Format: num | number </p>
+            <p>
+                Number without pipe: {{ num }}
+            </p>
+            <p>
+                Number with pipe: {{ num | number }}
+            </p>
+        </p-card>
+    </div>
+    <div class="p-lg-6 p-md-6 p-sm-12">
+        <p-card
+            header="Number with format"
+            subheader="Formats a value according to digit options and locale rules.">
+            <p>
+                You can pass an argument to determine what 
+                kind of format you desire on your number.
+            </p>
+            <p>Format: num | number:'1.2-2'</p>
+            <p>
+                Number without pipe: {{ num }}
+            </p>
+            <p>
+                Number with pipe: {{ num | number:'1.2-2' }}
+            </p>
+        </p-card>
+    </div>
+</div>
+<hr>
+<div class="text-layout">
+    <h1>Currency Pipes</h1>
+    <p>Basic Angular pipes normally included in the Common Module.</p>
+</div>
+<div class="p-grid">
+    <div class="p-lg-6 p-md-6 p-sm-12">
+        <p-card
+            header="Currency"
+            subheader="Transforms a number to a currency string.">
+            <p>
+                Formatted according to locale rules that 
+                determine group sizing and separator, 
+                decimal-point character, and other 
+                locale-specific configurations.
+            </p>
+            <p>Format: num | currency </p>
+            <p>
+                Number without pipe: {{ num }}
+            </p>
+            <p>
+                Number with pipe: {{ num | currency }}
+            </p>
+        </p-card>
+    </div>
+    <div class="p-lg-6 p-md-6 p-sm-12">
+        <p-card
+            header="Currenct with format"
+            subheader="Transforms a number to a currency string according argument options.">
+            <p>
+                You can pass an argument to determine what 
+                kind of format you desire on your currency.
+            </p>
+            <p>Format: num | currency:'EUR':'symbol-narrow':'1.4-4'</p>
+            <p>
+                Number without pipe: {{ num }}
+            </p>
+            <p>
+                Number with pipe: {{ num | currency:'EUR':'symbol-narrow':'1.4-4' }}
+            </p>
+        </p-card>
+    </div>
+</div>
+<hr>
+<div class="text-layout">
+    <h1>Percentage Pipes</h1>
+    <p>Basic Angular pipes normally included in the Common Module.</p>
+</div>
+<div class="p-grid">
+    <div class="p-lg-6 p-md-6 p-sm-12">
+        <p-card
+            header="Percent"
+            subheader="Transforms a number to a percentage string.">
+            <p>
+                Formatted according to locale rules that 
+                determine group sizing and separator, 
+                decimal-point character, and other 
+                locale-specific configurations.
+            </p>
+            <p>Format: percentage | percent </p>
+            <p>
+                Number without pipe: {{ percentage }}
+            </p>
+            <p>
+                Number with pipe: {{ percentage | percent }}
+            </p>
+        </p-card>
+    </div>
+    <div class="p-lg-6 p-md-6 p-sm-12">
+        <p-card
+            header="Currenct with format"
+            subheader="Transforms a number to a percentage string according argument options.">
+            <p>
+                You can pass an argument to determine what 
+                kind of format you desire on your percentage.
+            </p>
+            <p>Format: percentage | percent:'1.2-2'</p>
+            <p>
+                Number without pipe: {{ percentage }}
+            </p>
+            <p>
+                Number with pipe: {{ percentage | percent:'1.2-2' }}
+            </p>
+        </p-card>
+    </div>
+</div>

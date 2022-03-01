@@ -1,0 +1,124 @@
+<div class="text-layout">
+    <h1>Basic Pipes</h1>
+    <p>Basic Angular pipes normally included in the Common Module.</p>
+</div>
+<div class="p-grid">
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="UPPERCASE"
+            subheader="Transforms text to all upper case.">
+            <p>
+                Text: {{ text }}
+            </p>
+            <p>
+                Text using pipes: {{ text | uppercase }}
+            </p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="lowercase"
+            subheader="Transforms text to all lower case.">
+            <p>
+                Text: {{ text }}
+            </p>
+            <p>
+                Text using pipes: {{ text | lowercase }}
+            </p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Titlecase"
+            subheader="Capitalizes the first letter of each word and transforms the rest of the word to lower case.">
+            <p>
+                Text: {{ text }}
+            </p>
+            <p>
+                Text using pipes: {{ text | titlecase }}
+            </p>
+        </p-card>
+    </div>
+</div>
+
+<hr>
+<div class="text-layout">
+    <h1>Date Pipe</h1>
+    <p>Formats a date value according to locale rules..</p>
+</div>
+<div class="p-grid">
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Date without input values"
+            subheader="date">
+            <p>{{ date }}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Date"
+            subheader="date | date">
+            <p>{{ date | date}}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Date short"
+            subheader="date | date: 'short'">
+            <p>{{ date | date: 'short' }}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Date long"
+            subheader="date | date: 'long'">
+            <p>{{ date | date: 'long' }}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Date fulldate"
+            subheader="date | date: 'fullDate'">
+            <p>{{ date | date: 'fullDate' }}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Custom Date"
+            subheader="date | date: 'MMMM dd, yyyy GG'">
+            <p>{{ date | date: 'MMMM dd, yyyy GG'}}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Custom Date with GTM"
+            subheader="date | date:'long':'GMT-6'">
+            <p>{{ date | date:'long':'GMT-6'}}</p>
+        </p-card>
+    </div>
+    <div class="p-lg-4 p-md-6 p-sm-12">
+        <p-card
+            header="Custom Date with LANGUAGE"
+            subheader="date | date:'long':'':'es-AR'">
+            <p>{{ date | date:'long':'':'es-AR'}}</p>
+        </p-card>
+    </div>
+</div>
+
+<!--
+<p-card
+  [header]="title | titlecase"
+  subheader="This is a subheader">
+  This is a simple app using Pipes and Primeng.
+  <ng-template pTemplate="footer">
+    <button 
+      pButton 
+      (click)="showTitle()"
+      label="Change title"
+      icon="pi pi-eye" 
+      iconPos="right"
+      class="p-button-help">
+    </button>
+  </ng-template>
+</p-card>
+-->

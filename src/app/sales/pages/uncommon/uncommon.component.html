@@ -1,0 +1,134 @@
+<div class="text-layout">
+    <h1>Uncommon Pipes</h1>
+    <p>Basic Angular pipes normally included in the Common Module.</p>
+</div>
+<div class="p-grid">
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    Generic selector that displays the string that 
+                    matches the current value.
+                </strong>
+            </p>
+
+            <p>
+                Greetings {{ name }}, 
+                this is a text to test the
+                functionality of the pipe i18nSelect. This text
+                should recognize the gender of the name and change
+                the following phrase:
+            </p>
+            <p>
+                <strong>
+                    {{ gender | i18nSelect:testPipeMap }}
+                </strong>
+            </p>
+            <button 
+                pButton 
+                (click)="changePerson()"
+                label="Change Person"
+                icon="pi pi-users" 
+                iconPos="right">
+            </button>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    Maps a value to a string that pluralizes 
+                    the value according to locale rules.
+                </strong>
+            </p>
+            <p>
+                {{ testPipeArr.length | i18nPlural:testPipePluralMap }}
+            </p>
+            <button 
+                pButton 
+                (click)="deletePerson()"
+                label="Delete Person"
+                icon="pi pi-user-minus" 
+                iconPos="right" 
+                class="p-button-danger">
+            </button>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    Creates a new Array or String containing 
+                    a subset (slice) of the elements.
+                </strong>
+            </p>
+            <p>
+                Original:
+            </p>
+            <pre>
+               {{ testPipeArr }} <!--asi no pasa por el ciclo de detección de cambios-->
+            </pre>
+            <p>
+                Array with slice pipe:
+            </p>
+            <p>Format: arr | slice:0:2</p>
+            <pre>
+                {{ testPipeArr | slice:0:2 }} <!--asi SI pasa por el ciclo de detección de cambios-->
+            </pre>
+            <p>Format: arr | slice:1:3</p>
+            <pre>
+                {{ testPipeArr | slice:1:3 }} <!--asi SI pasa por el ciclo de detección de cambios-->
+            </pre>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="JSON Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    Converts a value into its JSON-format 
+                    representation. Useful for debugging.
+                </strong>
+            </p>
+            <pre>{{ testJsonArr | json }}</pre>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    Transforms Object or Map into an 
+                    array of key value pairs.
+                </strong>
+            </p>
+            <ul>
+                <li *ngFor="let person of testPerson | keyvalue">
+                   <strong>
+                    {{ person.key | titlecase }}:
+                   </strong>  
+                   {{ person.value }}
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-lg-6 p-md-12 p-sm-12">
+        <p-fieldset legend="Async Pipe" [toggleable]="true">
+            <p>
+                <strong>
+                    Unwraps a value from an asynchronous primitive.
+                </strong>
+            </p>
+            <p>
+                Only works with: Observable T | Subscribable T  | Promise T
+            </p>
+            <p>
+                Observable:
+            </p>
+            <pre>{{ testObservable | async }}</pre> <!--Sin realizar una suscripcion podemos visualizar el contenido del observable-->
+            <p>
+                Promise:
+            </p>
+            <pre *ngIf="!(testPromise | async)">Waiting for promise to be resolved...</pre>
+            <pre>{{ testPromise | async }}</pre>
+        </p-fieldset>
+    </div>
+</div>
